@@ -9,38 +9,38 @@ import { useEffect, useState } from "react";
 export default function App() {
   const { scrollYProgress } = useScroll();
 
-  // Day to Night color transformations
+  // Day to Night color transformations — Premium Palette
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#F9F9F6", "#E8D8CE", "#0F172A"] // Day (Sand), Sunset (Warm dusk), Night (Deep Slate)
+    ["#F5F0E8", "#1A2F23", "#050D12"] // Warm Ivory, Deep Forest, Midnight Black
   );
 
   const textColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#1C2A21", "#3E2723", "#F8FAFC"] // Deep Green, Deep Brown, Off-white
+    ["#1A2F23", "#F5F0E8", "#E8DCC8"] // Deep Forest, Warm Ivory, Champagne
   );
 
   const primaryColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#2C5530", "#8D4004", "#EAB308"] // Forest Green, Burnt Orange, Amber
+    ["#1A6B3C", "#C9A84C", "#C9A84C"] // Rich Emerald, Champagne Gold, Champagne Gold
   );
 
   const surfaceContainerColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["#ffffff", "#FCECDD", "#1e293b"]
+    ["#FFFFFF", "#122318", "#0A1A20"]
   );
 
   const headerBackgroundColor = useTransform(
     scrollYProgress,
     [0, 0.5, 1],
-    ["rgba(249, 249, 246, 0.85)", "rgba(232, 216, 206, 0.85)", "rgba(15, 23, 42, 0.85)"]
+    ["rgba(245, 240, 232, 0.92)", "rgba(26, 47, 35, 0.95)", "rgba(5, 13, 18, 0.97)"]
   );
 
-  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.4, 0.7]);
+  const overlayOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 0.55, 0.8]);
 
   return (
     <motion.div
@@ -58,12 +58,12 @@ export default function App() {
           </motion.span>
         </div>
         <nav className="hidden md:flex items-center space-x-8">
-          <a className="opacity-80 hover:scale-105 hover:text-amber-500 transition-all duration-300 font-label uppercase tracking-widest text-xs" href="#about">About</a>
-          <a className="opacity-80 hover:scale-105 hover:text-amber-500 transition-all duration-300 font-label uppercase tracking-widest text-xs" href="#rooms">Rooms</a>
-          <a className="opacity-80 hover:scale-105 hover:text-amber-500 transition-all duration-300 font-label uppercase tracking-widest text-xs" href="#dining">Dining</a>
-          <a className="opacity-80 hover:scale-105 hover:text-amber-500 transition-all duration-300 font-label uppercase tracking-widest text-xs" href="#location">Location</a>
+          <a className="opacity-75 hover:opacity-100 hover:text-yellow-500 transition-all duration-300 font-label uppercase tracking-widest text-xs" href="#about">About</a>
+          <a className="opacity-75 hover:opacity-100 hover:text-yellow-500 transition-all duration-300 font-label uppercase tracking-widest text-xs" href="#rooms">Rooms</a>
+          <a className="opacity-75 hover:opacity-100 hover:text-yellow-500 transition-all duration-300 font-label uppercase tracking-widest text-xs" href="#dining">Dining</a>
+          <a className="opacity-75 hover:opacity-100 hover:text-yellow-500 transition-all duration-300 font-label uppercase tracking-widest text-xs" href="#location">Location</a>
         </nav>
-        <a className="bg-gradient-to-br from-emerald-700 to-emerald-900 text-white px-4 md:px-6 py-2 rounded-full font-label uppercase tracking-widest text-[10px] md:text-xs hover:scale-105 transition-transform shadow-md whitespace-nowrap" href="https://wa.me/919763429463">
+        <a className="bg-gradient-to-br from-yellow-500 to-yellow-700 text-white px-4 md:px-6 py-2 rounded-full font-label uppercase tracking-widest text-[10px] md:text-xs hover:scale-105 hover:shadow-yellow-500/40 transition-all shadow-lg whitespace-nowrap" href="https://wa.me/919763429463">
           Book Now
         </a>
       </motion.header>
@@ -111,7 +111,7 @@ export default function App() {
           <p className="text-white/90 text-lg md:text-xl mb-10 font-light tracking-wide max-w-2xl mx-auto drop-shadow-md">
             Your peaceful, premium getaway just steps from Benaulim Beach. Experience the curated sanctuary of The Woodside Inn.
           </p>
-          <a className="inline-flex items-center gap-3 bg-gradient-to-br from-emerald-600 to-emerald-800 text-white px-10 py-5 rounded-full text-sm font-bold uppercase tracking-[0.2em] shadow-2xl hover:scale-105 transition-all" href="https://wa.me/919763429463">
+          <a className="inline-flex items-center gap-3 bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-700 text-white px-10 py-5 rounded-full text-sm font-bold uppercase tracking-[0.2em] shadow-2xl shadow-yellow-500/30 hover:scale-105 hover:shadow-yellow-500/50 transition-all border border-yellow-300/30" href="https://wa.me/919763429463">
             <span className="material-symbols-outlined">chat</span>
             Book Your Stay via WhatsApp
           </a>
@@ -174,7 +174,7 @@ export default function App() {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span className="text-amber-500 font-label uppercase tracking-widest text-sm font-bold">Our Residences</span>
+            <span className="text-yellow-500 font-label uppercase tracking-widest text-sm font-bold tracking-[0.3em]">Our Residences</span>
             <motion.h2 style={{ color: primaryColor }} className="font-headline text-4xl md:text-5xl mt-4">Luxury in Every Detail</motion.h2>
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[700px]">
@@ -224,6 +224,7 @@ export default function App() {
             { icon: "child_care", title: "Children's Pool", desc: "Safe and fun spaces for our youngest guests." },
             { icon: "park", title: "Lush Gardens", desc: "Curated tropical flora for ultimate peace." },
             { icon: "concierge", title: "24h Reception", desc: "Personalized service around the clock." }
+          
           ].map((item, index) => (
             <motion.div 
               key={index}
@@ -233,7 +234,7 @@ export default function App() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="space-y-4"
             >
-              <motion.span style={{ color: primaryColor }} className="material-symbols-outlined text-4xl">{item.icon}</motion.span>
+              <motion.span style={{ color: primaryColor }} className="material-symbols-outlined text-5xl drop-shadow-sm">{item.icon}</motion.span>
               <h4 className="font-headline text-xl">{item.title}</h4>
               <p className="text-sm opacity-70">{item.desc}</p>
             </motion.div>
@@ -257,16 +258,16 @@ export default function App() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="font-label uppercase tracking-widest text-sm text-amber-500">Culinary Journey</span>
+            <span className="font-label uppercase tracking-widest text-sm text-yellow-500 tracking-[0.3em]">Culinary Journey</span>
             <motion.h2 style={{ color: primaryColor }} className="font-headline text-5xl mt-6 mb-8 leading-tight">The Woodside Bistro</motion.h2>
             <p className="text-lg opacity-80 mb-10 leading-relaxed">From the vibrant spices of Goa to the classic comforts of the British Isles, our bistro is a celebration of global flavors. Join us for live music evenings and karaoke nights under the stars.</p>
             <div className="grid grid-cols-2 gap-4">
-              <motion.div style={{ backgroundColor: surfaceContainerColor }} className="p-6 rounded-xl border border-white/10 shadow-lg">
-                <h5 className="font-bold text-amber-500 mb-2">Local & Asian</h5>
+              <motion.div style={{ backgroundColor: surfaceContainerColor }} className="p-6 rounded-xl border border-yellow-500/20 shadow-lg hover:border-yellow-500/40 transition-colors">
+                <h5 className="font-bold text-yellow-500 mb-2">Local &amp; Asian</h5>
                 <p className="text-sm opacity-70">Authentic Goan, Indian, and Chinese favorites.</p>
               </motion.div>
-              <motion.div style={{ backgroundColor: surfaceContainerColor }} className="p-6 rounded-xl border border-white/10 shadow-lg">
-                <h5 className="font-bold text-amber-500 mb-2">Continental</h5>
+              <motion.div style={{ backgroundColor: surfaceContainerColor }} className="p-6 rounded-xl border border-yellow-500/20 shadow-lg hover:border-yellow-500/40 transition-colors">
+                <h5 className="font-bold text-yellow-500 mb-2">Continental</h5>
                 <p className="text-sm opacity-70">Exquisite British and Greek inspired dishes.</p>
               </motion.div>
             </div>
@@ -349,24 +350,24 @@ export default function App() {
       >
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto">
           <div className="space-y-6">
-            <span className="text-xl font-headline text-amber-500">The Woodside Inn</span>
+            <span className="text-xl font-headline text-yellow-500">The Woodside Inn</span>
             <p className="opacity-70 text-sm leading-relaxed">Redefining tropical luxury in the heart of South Goa's most serene coastal village.</p>
             <div className="flex gap-4">
-              <a className="text-amber-500 hover:text-amber-400 transition-colors" href="#"><span className="material-symbols-outlined">public</span></a>
-              <a className="text-amber-500 hover:text-amber-400 transition-colors" href="#"><span className="material-symbols-outlined">share</span></a>
+              <a className="text-yellow-500 hover:text-yellow-400 hover:scale-110 transition-all" href="#"><span className="material-symbols-outlined">public</span></a>
+              <a className="text-yellow-500 hover:text-yellow-400 hover:scale-110 transition-all" href="#"><span className="material-symbols-outlined">share</span></a>
             </div>
           </div>
           <div className="space-y-4">
-            <h4 className="text-amber-500 font-headline text-lg">Links</h4>
+            <h4 className="text-yellow-500 font-headline text-lg">Links</h4>
             <nav className="flex flex-col space-y-2">
-              <a className="opacity-70 hover:text-amber-500 transition-colors text-sm" href="#about">About</a>
-              <a className="opacity-70 hover:text-amber-500 transition-colors text-sm" href="#rooms">Rooms</a>
-              <a className="opacity-70 hover:text-amber-500 transition-colors text-sm" href="#dining">Dining</a>
-              <a className="opacity-70 hover:text-amber-500 transition-colors text-sm" href="#location">Location</a>
+              <a className="opacity-70 hover:text-yellow-500 hover:opacity-100 transition-all text-sm" href="#about">About</a>
+              <a className="opacity-70 hover:text-yellow-500 hover:opacity-100 transition-all text-sm" href="#rooms">Rooms</a>
+              <a className="opacity-70 hover:text-yellow-500 hover:opacity-100 transition-all text-sm" href="#dining">Dining</a>
+              <a className="opacity-70 hover:text-yellow-500 hover:opacity-100 transition-all text-sm" href="#location">Location</a>
             </nav>
           </div>
           <div className="space-y-4">
-            <h4 className="text-amber-500 font-headline text-lg">Contact</h4>
+            <h4 className="text-yellow-500 font-headline text-lg">Contact</h4>
             <div className="opacity-70 text-sm space-y-2">
               <p>+91 97634 29463</p>
               <p>stay@thewoodsideinngoa.com</p>
@@ -374,10 +375,10 @@ export default function App() {
             </div>
           </div>
           <div className="space-y-4">
-            <h4 className="text-amber-500 font-headline text-lg">Newsletter</h4>
+            <h4 className="text-yellow-500 font-headline text-lg">Newsletter</h4>
             <div className="flex">
-              <input className="bg-black/5 dark:bg-white/10 border-none text-sm rounded-l-lg w-full focus:ring-amber-500 px-4 py-2 outline-none" placeholder="Email Address" type="email" />
-              <button className="bg-amber-500 text-white px-4 py-2 rounded-r-lg hover:bg-amber-400 transition-colors">
+              <input className="bg-black/5 dark:bg-white/10 border border-yellow-500/20 text-sm rounded-l-lg w-full focus:ring-yellow-500 px-4 py-2 outline-none" placeholder="Email Address" type="email" />
+              <button className="bg-gradient-to-br from-yellow-500 to-yellow-700 text-white px-4 py-2 rounded-r-lg hover:from-yellow-400 hover:to-yellow-600 transition-all">
                 <span className="material-symbols-outlined">arrow_forward</span>
               </button>
             </div>
@@ -387,7 +388,7 @@ export default function App() {
           <p className="opacity-50 text-xs">© 2026 The Woodside Inn South Goa. All rights reserved.</p>
           <div className="mt-4 flex items-center gap-2 group cursor-default">
             <span className="opacity-60 text-xs uppercase tracking-widest">Developed by</span>
-            <span className="text-amber-500 font-bold tracking-widest uppercase text-sm bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-300 group-hover:scale-105">Teched Studios</span>
+            <span className="font-bold tracking-widest uppercase text-sm bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 transition-all duration-300 group-hover:scale-105">Teched Studios</span>
           </div>
         </div>
       </motion.footer>
